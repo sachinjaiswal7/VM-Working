@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Docker VM Manager</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Docker VM Manager</h1>
+    
+    <div id="connection-panel">
+      <h2>SSH Connection</h2>
+      <div class="form-group">
+        <label for="host">Host:</label>
+        <input type="text" id="host" placeholder="hostname or IP">
+      </div>
+      <div class="form-group">
+        <label for="port">Port:</label>
+        <input type="number" id="port" value="22">
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+      </div>
+      <button id="connect-btn">Connect</button>
+      <button id="disconnect-btn" disabled>Disconnect</button>
+      <div id="connection-status"></div>
+    </div>
+    
+    <div id="container-panel" class="hidden">
+      <h2>Docker Containers</h2>
+      <button id="refresh-btn">Refresh List</button>
+      <div class="container-list-wrapper">
+        <table id="container-list">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="container-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div id="logs-panel" class="hidden">
+      <h2>Container Logs</h2>
+      <div id="container-info"></div>
+      <div class="form-group">
+        <label for="start-time">Start Time:</label>
+        <input type="datetime-local" id="start-time">
+      </div>
+      <div class="form-group">
+        <label for="end-time">End Time:</label>
+        <input type="datetime-local" id="end-time">
+      </div>
+      <button id="export-logs-btn">Export Logs</button>
+      <button id="back-btn">Back to Container List</button>
+      <div id="export-status"></div>
+    </div>
+  </div>
+  
+  <script src="renderer.js"></script>
+</body>
+</html>
